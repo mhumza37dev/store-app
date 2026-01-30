@@ -1,0 +1,20 @@
+@import 'tailwindcss';
+
+html,
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-display: 'Playfair Display', serif;
+}
+
+@theme {
+  --color-primary: #664cdd;
+  --color-primary-10: color-mix(in srgb, #664cdd 10%, transparent 90%);
+  --color-primary-20: color-mix(in srgb, #664cdd 20%, transparent 80%);
+  --color-primary-30: color-mix(in srgb, #664cdd 30%, transparent 70%);
+  --color-primary-40: color-mix(in srgb, #664cdd 40%, transparent 60%);
+  --color-primary-50: color-mix(in srgb, #664cdd 50%, transparent 50%);
+  --color-primary-60: color-mix(in srgb, #664cdd 60%, transparent 40%);
+  --color-primary-70: color-mix(in srgb, #664cdd 70%, transparent 30%);
+  --color-primary-80: color-mix(in srgb, #664cdd 80%, transparent 20%);
+  --color-primary-90: color-mix(in srgb, #664cdd 90%, transparent 10%);
+}
