@@ -1,8 +1,7 @@
 import { create } from 'zustand';
 import type { ToasterToast, ToastState } from '@/types/toast-types';
 
-const TOAST_LIMIT = 1;
-const TOAST_REMOVE_DELAY = 1000000;
+const TOAST_REMOVE_DELAY = 10000; // 10 seconds
 
 let count = 0;
 function genId() {
@@ -18,9 +17,9 @@ const addToRemoveQueue = (toastId: string) => {
   if (toastTimeouts.has(toastId)) return;
 
   const timeout = setTimeout(() => {
-    toastTimeouts.delete(toastId);
-    // call removeToast from the store
-    useToastStore.getState().removeToast(toastId);
+    // first mark toast as closed, then removal will be scheduled by dismissToast
+    useToastStore.getState().dismissToast(toastId);
+    console.log(`Toast ${toastId} auto-dismissed after timeout`);
   }, TOAST_REMOVE_DELAY);
 
   toastTimeouts.set(toastId, timeout);
@@ -31,7 +30,7 @@ export const useToastStore = create<State>((set, get) => ({
 
   addToast: (toast) =>
     set((state) => ({
-      toasts: [toast, ...state.toasts].slice(0, TOAST_LIMIT),
+      toasts: [toast, ...state.toasts],
     })),
 
   updateToast: (toast) =>
@@ -72,6 +71,9 @@ export const useToastStore = create<State>((set, get) => ({
         if (!open) dismiss();
       },
     });
+
+    // schedule auto-dismiss after configured delay
+    addToRemoveQueue(id);
 
     return { id, dismiss, update };
   },

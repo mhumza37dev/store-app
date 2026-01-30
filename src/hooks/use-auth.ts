@@ -112,7 +112,7 @@ export function useLogin() {
         const res = await axios.post(API_ENDPOINT.LOGIN, credentials);
         return res.data as LoginResponse;
       } catch (error: any) {
-        const err_msg = error?.message || error.response?.data?.message || 'Login failed';
+        const err_msg = error.response?.data?.message || error?.message || 'Login failed';
         throw new Error(err_msg);
       }
     },
@@ -143,7 +143,7 @@ export function useProfile() {
         return res.data as DummyUser;
       } catch (error: any) {
         const err_msg =
-          error?.message || error.response?.data?.message || 'Failed to fetch profile';
+          error.response?.data?.message || error?.message || 'Failed to fetch profile';
         throw new Error(err_msg);
       }
     },

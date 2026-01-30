@@ -68,11 +68,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
         <div className="p-4 border-t border-slate-100">
           <Button
-            className="w-full justify-start text-red-500 hover:text-red-600 hover:bg-red-50 gap-3"
+            className="w-full justify-start bg-transparent text-red-500 hover:text-red-600 hover:bg-red-50 gap-3 shadow-none"
             onClick={handleLogout}
           >
-            <LogOut className="w-5 h-5" />
-            Logout
+            <LogOut className="w-5 h-5 text-red-500" />
+            <span className="text-red-500">Logout</span>
           </Button>
         </div>
       </aside>

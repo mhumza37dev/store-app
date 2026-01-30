@@ -82,10 +82,8 @@ export default function LoginPage() {
         </div>
       </div>
 
-      {/* Right Side - Visual */}
       <div className="hidden lg:flex relative bg-slate-900 items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-linear-to-br from-primary/20 to-slate-900 z-10" />
-        {/* Abstract shapes */}
         <div className="absolute top-0 right-0 w-200 h-200 bg-primary/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
         <div className="absolute bottom-0 left-0 w-150 h-150 bg-indigo-500/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
 

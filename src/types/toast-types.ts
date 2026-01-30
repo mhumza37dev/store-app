@@ -6,6 +6,14 @@ export type ToasterToast = ToastProps & {
   title?: React.ReactNode;
   description?: React.ReactNode;
   action?: ToastActionElement;
+  position?:
+    | 'top-left'
+    | 'top-right'
+    | 'top-center'
+    | 'bottom-left'
+    | 'bottom-right'
+    | 'bottom-center';
+  variant?: 'success' | 'error' | 'info' | 'warning';
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuthStore } from '@/store/auth-store';
 import { Redirect } from 'wouter';
+import { Layout } from '@/components/layout/layout';
 
 export default function ProtectedRoute({
   component: Component,
@@ -13,5 +14,9 @@ export default function ProtectedRoute({
     return <Redirect to="/login" />;
   }
 
-  return <Component />;
+  return (
+    <Layout>
+      <Component />
+    </Layout>
+  );
 }
