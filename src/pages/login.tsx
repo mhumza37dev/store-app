@@ -26,6 +26,7 @@ export default function LoginPage() {
         toast({
           title: 'Login Failed',
           description: error.message,
+          variant: 'error',
         });
       },
     });
